@@ -103,10 +103,10 @@ public class GameBot {
             System.out.println("Error clicking Play button: " + e.getMessage());
         }
     }
-    
+    /*
     public void placeBet() {
         clickAtCoordinates(60, 230); // Estimated $1 chip coordinates
         waitForSeconds(1); // Optional: pause after clicking
     }
-
+*/
 }
