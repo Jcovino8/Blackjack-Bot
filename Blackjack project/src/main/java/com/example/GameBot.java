@@ -17,7 +17,9 @@ public class GameBot {
         this.driver = driver;
     }
 
-    public void switchToIframe() {
+ /*   
+ 
+ public void switchToIframe() {
         try {
             driver.switchTo().defaultContent();
             WebElement iframe = new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -29,6 +31,8 @@ public class GameBot {
             System.out.println("Failed to switch to iframe: " + e.getMessage());
         }
     }
+    
+    
 
     public void clickAtCoordinates(int x, int y) {
         try {
@@ -40,6 +44,33 @@ public class GameBot {
         } catch (Exception e) {
             System.out.println("Failed to click at coordinates: (" + x + ", " + y + ")");
             e.printStackTrace();
+        }
+    }
+    
+    */
+    public static void openBlackjack(WebDriver driver) {
+        try {
+            // Click the search button
+            WebElement searchButton = driver.findElement(By.xpath("//button[@data-testid='search-bar-icon-btn']"));
+            searchButton.click();
+            Thread.sleep(1000); // Allow search bar to open
+
+            // Locate the search input field
+            WebElement searchInput = driver.findElement(By.xpath("//input[@type='search']"));
+            searchInput.sendKeys("Free Bet Blackjack");
+            Thread.sleep(1000); // Allow search results to populate
+
+            // Press ENTER to trigger search
+            searchInput.sendKeys(Keys.RETURN);
+            Thread.sleep(2000); // Allow search results to load
+
+            // Click the first result (modify selector if needed)
+            WebElement blackjackResult = driver.findElement(By.xpath("//p[contains(text(), 'Free Bet Blackjack')]"));
+            blackjackResult.click();
+
+            System.out.println("Navigated to Free Bet Blackjack.");
+        } catch (Exception e) {
+            System.out.println("Error in openBlackjack: " + e.getMessage());
         }
     }
 
