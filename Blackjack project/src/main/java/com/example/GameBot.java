@@ -86,8 +86,22 @@ public class GameBot {
 
 
     public void clickPlayButton() {
-        clickAtCoordinates(350, 400); // Estimated Play button coordinates
-        waitForSeconds(2); // Optional: give the game time to load
+        try {
+            // Locate the parent <a> tag that contains the Play button text
+            WebElement playButton = driver.findElement(By.xpath("//a[contains(@class, 'game-tile-button-cash__root')]"));
+
+            // Scroll into view if necessary
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", playButton);
+            Thread.sleep(500); // Small delay to ensure visibility
+
+            // Click the Play button
+            playButton.click();
+
+            System.out.println("Play button clicked successfully!");
+
+        } catch (Exception e) {
+            System.out.println("Error clicking Play button: " + e.getMessage());
+        }
     }
     
     public void placeBet() {
