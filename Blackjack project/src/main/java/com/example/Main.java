@@ -14,7 +14,7 @@ public class Main {
         WebDriver driver = new ChromeDriver();
 
         // Open the 247 Blackjack website
-        driver.get("https://www.247blackjack.com/");
+        driver.get("https://casino.draftkings.com/?casinoPartner=Hollywood");
     
 
          // Print the page title
