@@ -48,6 +48,16 @@ public class GameBot {
     }
     
     */
+    
+    public void waitForSeconds(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            System.out.println("Wait was interrupted.");
+            e.printStackTrace();
+        }
+    }
+
     public static void openBlackjack(WebDriver driver) {
         try {
             // Click the search button
@@ -74,17 +84,8 @@ public class GameBot {
         }
     }
 
-    public void waitForSeconds(int seconds) {
-        try {
-            Thread.sleep(seconds * 1000);
-        } catch (InterruptedException e) {
-            System.out.println("Wait was interrupted.");
-            e.printStackTrace();
-        }
-    }
 
     public void clickPlayButton() {
-        waitForSeconds(15); // Optional: give the game time to load
         clickAtCoordinates(350, 400); // Estimated Play button coordinates
         waitForSeconds(2); // Optional: give the game time to load
     }
