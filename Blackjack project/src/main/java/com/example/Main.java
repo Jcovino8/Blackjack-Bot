@@ -32,6 +32,8 @@ public class Main {
             Thread.sleep(10000);
            // bot.listButtons();
 
+            bot.openBlackjack();
+            
             bot.clickPlayButton();
 
             bot.placeBet();
